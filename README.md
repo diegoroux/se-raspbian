@@ -5,7 +5,9 @@ Dockerfile to compile the Raspberry Linux Kernel with SELinux enabled.
 As of right now, we only target Raspberry Pi 1, Zero and Zero W, and Raspberry Pi Compute Module 1, there are plans to target all RPi's.
 
 ## Download
-```$ docker pull diegoroux04/se-raspbian:latest```
+```
+$ docker pull diegoroux04/se-raspbian:latest
+```
 
 ## Quick Start
 ```
