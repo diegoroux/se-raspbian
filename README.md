@@ -11,9 +11,9 @@ $ docker pull diegoroux04/se-raspbian:latest
 
 ## Quick Start
 ```
-$ docker run d \
+$ docker run -d \
     --name se-raspbian \
     -v /path/to/store/kernel/se-raspbian:/etc/se-raspbian/ \
     -e BRANCH="rpi-6.1.y" \
-    diegoroux04/se-raspbian
+    diegoroux04/se-raspbian:latest
 ```
