@@ -38,7 +38,7 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi_defconfig
 # Compile the kernel.
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs
 
-export SEPATH=/etc/se-raspbian/
+export SEPATH=/etc/se-raspbian
 
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=$SEPATH modules_install
 
