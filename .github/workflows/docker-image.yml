@@ -1,4 +1,4 @@
-name: Kernel and Docker build.
+name: "Kernel and Docker build."
 
 on:
   push:
@@ -12,11 +12,11 @@ jobs:
     - name: Checkout repo
     - uses: actions/checkout@v3
     
-    #- name: Docker Login
-    #- uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc
-    #  with:
-    #    username: ${{ secrets.DOCKERHUB_USERNAME }}
-    #    password: ${{ secrets.DOCKERHUB_SECRET }}}
+    - name: Docker Login
+    - uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_SECRET }}}
         
     - name: Get image metadata
     - uses: docker/metadata-action@818d4b7b91585d195f67373fd9cb0332e31a7175
@@ -51,5 +51,3 @@ jobs:
         name: raspberrypi-kernel-amrh-${{vars.LINUX_TAG}}
         path: raspberrypi-kernel-amrh-${{vars.LINUX_TAG}}.tar.xz
         retention-days: 7
-    
-    
