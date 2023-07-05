@@ -1,4 +1,4 @@
-name: "Kernel and Docker build."
+name: Kernel and Docker build.
 
 on:
   push:
@@ -10,22 +10,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v3
     
     - name: Docker Login
-    - uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc
+      uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_SECRET }}}
         
     - name: Get image metadata
-    - uses: docker/metadata-action@818d4b7b91585d195f67373fd9cb0332e31a7175
+      uses: docker/metadata-action@818d4b7b91585d195f67373fd9cb0332e31a7175
       id: meta
       with:
         images: diegoroux04/se-raspbian
     
     - name: Build Dockerfile
-    - uses: docker/build-push-action@2eb1c1961a95fc15694676618e422e8ba1d63825
+      uses: docker/build-push-action@2eb1c1961a95fc15694676618e422e8ba1d63825
       with:
         context: .
         tags: ${{ steps.meta.outputs.tags }}
@@ -36,7 +36,7 @@ jobs:
       run: mkdir -p ${{github.workspace}}/kernel-data/
         
     - name: Run image
-    - uses: addnab/docker-run-action@v3
+      uses: addnab/docker-run-action@v3
       with:
         image: ${{ steps.meta.outputs.tags }}
         options: -e ${{ vars.LINUX_TAG }} -v ${{github.workspace}}/kernel-data/:/etc/se-raspbian/
