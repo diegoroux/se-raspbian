@@ -39,7 +39,7 @@ jobs:
       uses: addnab/docker-run-action@v3
       with:
         image: ${{ steps.meta.outputs.tags }}
-        options: -e BRANCH="${{ vars.LINUX_TAG }}" -v ${{github.workspace}}/kernel-data/:/etc/se-raspbian/
+        options: -e BRANCH=${{ vars.LINUX_TAG }} -v ${{github.workspace}}/kernel-data/:/etc/se-raspbian/
         run: bash ./make.sh
     
     - name: Build .tar.xz
